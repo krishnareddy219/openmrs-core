@@ -1,0 +1,13 @@
+---
+pool: 
+  name: default
+trigger:
+  - master
+steps:
+  - task: Maven@3
+    inputs:
+      mavenPOMFile: 'pom.xml'
+      testResultsFiles: '**/surefire-reports/TEST-*.xml'
+      JDKVersion: '1.11'
+      goals: 'clean package'
+      mavenDirectory: /openmrs-core
